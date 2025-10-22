@@ -4,21 +4,73 @@ import "./App.css";
 const FALLBACK_CONTACTS = [
     {
         id: 1,
-        name: "Ada Lovelace",
-        phone: "(555) 010-0101",
-        email: "ada@example.com",
+        name: "John Mitchell",
+        phone: "(555) 100-2001",
+        email: "john.mitchell@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=12",
     },
     {
         id: 2,
-        name: "Alan Turing",
-        phone: "(555) 010-0102",
-        email: "alan@example.com",
+        name: "Sarah Chen",
+        phone: "(555) 100-2002",
+        email: "sarah.chen@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=5",
     },
     {
         id: 3,
-        name: "Grace Hopper",
-        phone: "(555) 010-0103",
-        email: "grace@example.com",
+        name: "Marcus Johnson",
+        phone: "(555) 100-2003",
+        email: "marcus.j@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=13",
+    },
+    {
+        id: 4,
+        name: "Emily Rodriguez",
+        phone: "(555) 100-2004",
+        email: "emily.r@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=9",
+    },
+    {
+        id: 5,
+        name: "David Kim",
+        phone: "(555) 100-2005",
+        email: "david.kim@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=14",
+    },
+    {
+        id: 6,
+        name: "Lisa Anderson",
+        phone: "(555) 100-2006",
+        email: "lisa.a@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=10",
+    },
+    {
+        id: 7,
+        name: "James Wilson",
+        phone: "(555) 100-2007",
+        email: "james.w@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=15",
+    },
+    {
+        id: 8,
+        name: "Maria Garcia",
+        phone: "(555) 100-2008",
+        email: "maria.g@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=20",
+    },
+    {
+        id: 9,
+        name: "Robert Taylor",
+        phone: "(555) 100-2009",
+        email: "robert.t@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=11",
+    },
+    {
+        id: 10,
+        name: "Jennifer Lee",
+        phone: "(555) 100-2010",
+        email: "jennifer.lee@lvservices.com",
+        photo: "https://i.pravatar.cc/150?img=23",
     },
 ];
 
@@ -40,18 +92,18 @@ const App = () => {
     return (
         <main className="page" data-testid="page-root">
             <header className="page__header">
-                <h1 className="page__title">Phonebook Challenge</h1>
-                <p className="page__subtitle">Build a simple contact directory</p>
+                <h1 className="page__title">Low Voltage Services Directory</h1>
+                <p className="page__subtitle">Network Infrastructure & Security Systems Team</p>
             </header>
 
             <section className="search" aria-labelledby="search-heading">
-                <h2 id="search-heading">Search Contacts</h2>
+                <h2 id="search-heading">Search Team</h2>
                 <div className="search__controls">
                     <label htmlFor="search-input">Search</label>
                     <input
                         id="search-input"
                         type="search"
-                        placeholder="Search by name or phone"
+                        placeholder="Search by name or phone number"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         data-testid="search-input"
@@ -67,7 +119,23 @@ const App = () => {
             </section>
 
             <section className="contacts" aria-labelledby="contacts-heading">
-                <h2 id="contacts-heading">Contacts</h2>
+                <h2 id="contacts-heading">Team Directory</h2>
+                <ul className="contacts__list">
+                    {contacts.map((contact) => (
+                        <li key={contact.id} className="contact-card">
+                            <img 
+                                src={contact.photo} 
+                                alt={`${contact.name} profile photo`}
+                                className="contact-card__photo"
+                            />
+                            <div className="contact-card__info">
+                                <h3 className="contact-card__name">{contact.name}</h3>
+                                <p className="contact-card__phone">{contact.phone}</p>
+                                <p className="contact-card__email">{contact.email}</p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </section>
 
             <section className="form" aria-labelledby="form-heading">
