@@ -18,7 +18,7 @@
 
 .page__subtitle {
     margin: 0;
-    color: #888;
+    color: var(--muted);
 }
 
 .toolbar {
@@ -30,11 +30,23 @@
 
 .btn {
     border-radius: 8px;
-    border: 1px solid #3a3a3a;
+    border: 2px solid var(--accent);
     padding: 0.5rem 0.9rem;
-    background: #1a1a1a;
-    color: inherit;
+    background: var(--accent);
+    color: #ffffff;
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: #0090e0;
+    border-color: #0090e0;
+}
+
+.btn:focus {
+    outline: 3px solid var(--accent-orange);
+    outline-offset: 2px;
 }
 
 .theme {
@@ -47,7 +59,7 @@
 .search {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--border);
 }
 
 .search__controls {
@@ -58,43 +70,60 @@
 }
 
 .search__results {
-    color: #888;
+    color: var(--muted);
 }
 
 .contacts {
     margin-top: 1.5rem;
 }
 
-.contacts__grid {
+.contacts__list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
 .contact-card {
-    border: 1px solid #333;
+    border: 2px solid var(--border);
     border-radius: 12px;
-    padding: 1rem;
-    background: #111;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.contact-card__photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    object-fit: cover;
+}
+
+.contact-card__info {
+    flex: 1;
 }
 
 .contact-card__name {
-    margin: 0 0 0.25rem 0;
+    margin: 0 0 0.5rem 0;
     font-size: 1.1rem;
+    color: var(--accent);
 }
 
 .contact-card__email,
 .contact-card__phone {
-    margin: 0.1rem 0;
-    color: #aaa;
+    margin: 0.25rem 0;
+    color: var(--muted);
+    font-size: 0.9rem;
 }
 
 .form {
     margin-top: 2rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--border);
     padding-top: 1rem;
 }
 
@@ -113,10 +142,18 @@
 input,
 select {
     border-radius: 8px;
-    border: 1px solid #3a3a3a;
+    border: 2px solid var(--border);
     padding: 0.5rem 0.75rem;
-    background: #1a1a1a;
+    background: var(--card-bg);
     color: inherit;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.2);
 }
 
 .form__actions {
@@ -126,7 +163,7 @@ select {
 
 .page__footer {
     margin-top: 3rem;
-    color: #777;
+    color: var(--muted);
     text-align: center;
 }
 
